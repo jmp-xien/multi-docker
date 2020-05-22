@@ -7,7 +7,7 @@ services:
 
 
 before_install:
-  - docker build -t jmp/react-test -f .client/Dockerfile.dev ./client
+  - docker build -t jmp/react-test -f ./client/Dockerfile.dev ./client
   
 script:
   - docker run jmp/react-test npm test -- --coverage
