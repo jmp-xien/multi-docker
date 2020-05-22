@@ -12,8 +12,7 @@ RUN npm run build
 
 # New Image
 FROM nginx
-EXPOSE 80
-#  LOCAL   CONTAINER
+EXPOSE 3000
 
-#COPY --from=builder /app/build /usr/share/nginx/html
+COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/build /usr/share/nginx/html
