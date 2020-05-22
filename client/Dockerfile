@@ -6,7 +6,7 @@ WORKDIR '/app'
 COPY package*.json ./
 RUN npm install
 
-COPY . .
+COPY ./ ./
 # CMD ["npm", "run", "start"]
 RUN npm run build
 
@@ -16,4 +16,4 @@ EXPOSE 80
 #  LOCAL   CONTAINER
 
 #COPY --from=builder /app/build /usr/share/nginx/html
-COPY --from=0 /app/build /usr/share/nginx/html
+COPY --from=builder /app/build /usr/share/nginx/html
